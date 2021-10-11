@@ -15,8 +15,7 @@
 		91D8A21A270F889800DD0B7D /* MyShowcaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8A1F1270F889500DD0B7D /* MyShowcaseApp.swift */; };
 		91D8A21B270F889800DD0B7D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8A1F2270F889500DD0B7D /* ContentView.swift */; };
 		91D8A21C270F889800DD0B7D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8A1F2270F889500DD0B7D /* ContentView.swift */; };
-		91D8A21D270F889800DD0B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91D8A1F3270F889800DD0B7D /* Assets.xcassets */; };
-		91D8A21E270F889800DD0B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91D8A1F3270F889800DD0B7D /* Assets.xcassets */; };
+		91D8A22F270F88D400DD0B7D /* MyStyles in Frameworks */ = {isa = PBXBuildFile; productRef = 91D8A22E270F88D400DD0B7D /* MyStyles */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +38,6 @@
 /* Begin PBXFileReference section */
 		91D8A1F1270F889500DD0B7D /* MyShowcaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShowcaseApp.swift; sourceTree = "<group>"; };
 		91D8A1F2270F889500DD0B7D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		91D8A1F3270F889800DD0B7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91D8A1F8270F889800DD0B7D /* MyShowcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyShowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91D8A1FE270F889800DD0B7D /* MyShowcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyShowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91D8A200270F889800DD0B7D /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
@@ -56,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91D8A22F270F88D400DD0B7D /* MyStyles in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +98,6 @@
 			children = (
 				91D8A1F1270F889500DD0B7D /* MyShowcaseApp.swift */,
 				91D8A1F2270F889500DD0B7D /* ContentView.swift */,
-				91D8A1F3270F889800DD0B7D /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -157,6 +155,9 @@
 			dependencies = (
 			);
 			name = "MyShowcase (iOS)";
+			packageProductDependencies = (
+				91D8A22E270F88D400DD0B7D /* MyStyles */,
+			);
 			productName = "MyShowcase (iOS)";
 			productReference = 91D8A1F8270F889800DD0B7D /* MyShowcase.app */;
 			productType = "com.apple.product-type.application";
@@ -249,6 +250,9 @@
 				Base,
 			);
 			mainGroup = 91D8A1EB270F889400DD0B7D;
+			packageReferences = (
+				91D8A22D270F88D400DD0B7D /* XCRemoteSwiftPackageReference "MyStyles" */,
+			);
 			productRefGroup = 91D8A1F9270F889800DD0B7D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -266,7 +270,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91D8A21D270F889800DD0B7D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +277,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91D8A21E270F889800DD0B7D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -451,6 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -725,6 +729,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		91D8A22D270F88D400DD0B7D /* XCRemoteSwiftPackageReference "MyStyles" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ciaranmul/MyStyles";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		91D8A22E270F88D400DD0B7D /* MyStyles */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91D8A22D270F88D400DD0B7D /* XCRemoteSwiftPackageReference "MyStyles" */;
+			productName = MyStyles;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 91D8A1EC270F889400DD0B7D /* Project object */;
 }

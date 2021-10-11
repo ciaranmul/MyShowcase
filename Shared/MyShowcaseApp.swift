@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+import MyStyles
 
 @main
 struct MyShowcaseApp: App {
+
+    init() {
+        MyStyles.registerFonts()
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()
