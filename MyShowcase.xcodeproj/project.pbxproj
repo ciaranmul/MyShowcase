@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91464B0527148FFF007D5958 /* MyColorsPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91464B0427148FFF007D5958 /* MyColorsPreviewView.swift */; };
+		91464B0627148FFF007D5958 /* MyColorsPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91464B0427148FFF007D5958 /* MyColorsPreviewView.swift */; };
+		91464B09271492D4007D5958 /* MyStyles in Frameworks */ = {isa = PBXBuildFile; productRef = 91464B08271492D4007D5958 /* MyStyles */; };
 		91D8A20A270F889800DD0B7D /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8A209270F889800DD0B7D /* Tests_iOS.swift */; };
 		91D8A20C270F889800DD0B7D /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8A20B270F889800DD0B7D /* Tests_iOSLaunchTests.swift */; };
 		91D8A216270F889800DD0B7D /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8A215270F889800DD0B7D /* Tests_macOS.swift */; };
@@ -36,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		91464B0427148FFF007D5958 /* MyColorsPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyColorsPreviewView.swift; sourceTree = "<group>"; };
 		91D8A1F1270F889500DD0B7D /* MyShowcaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShowcaseApp.swift; sourceTree = "<group>"; };
 		91D8A1F2270F889500DD0B7D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		91D8A1F8270F889800DD0B7D /* MyShowcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyShowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91464B09271492D4007D5958 /* MyStyles in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +87,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		91464B07271492D4007D5958 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		91D8A1EB270F889400DD0B7D = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +102,7 @@
 				91D8A208270F889800DD0B7D /* Tests iOS */,
 				91D8A214270F889800DD0B7D /* Tests macOS */,
 				91D8A1F9270F889800DD0B7D /* Products */,
+				91464B07271492D4007D5958 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +111,7 @@
 			children = (
 				91D8A1F1270F889500DD0B7D /* MyShowcaseApp.swift */,
 				91D8A1F2270F889500DD0B7D /* ContentView.swift */,
+				91464B0427148FFF007D5958 /* MyColorsPreviewView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -175,6 +189,9 @@
 			dependencies = (
 			);
 			name = "MyShowcase (macOS)";
+			packageProductDependencies = (
+				91464B08271492D4007D5958 /* MyStyles */,
+			);
 			productName = "MyShowcase (macOS)";
 			productReference = 91D8A1FE270F889800DD0B7D /* MyShowcase.app */;
 			productType = "com.apple.product-type.application";
@@ -303,6 +320,7 @@
 			files = (
 				91D8A21B270F889800DD0B7D /* ContentView.swift in Sources */,
 				91D8A219270F889800DD0B7D /* MyShowcaseApp.swift in Sources */,
+				91464B0527148FFF007D5958 /* MyColorsPreviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +330,7 @@
 			files = (
 				91D8A21C270F889800DD0B7D /* ContentView.swift in Sources */,
 				91D8A21A270F889800DD0B7D /* MyShowcaseApp.swift in Sources */,
+				91464B0627148FFF007D5958 /* MyColorsPreviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +420,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -455,6 +475,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -742,6 +763,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		91464B08271492D4007D5958 /* MyStyles */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91D8A22D270F88D400DD0B7D /* XCRemoteSwiftPackageReference "MyStyles" */;
+			productName = MyStyles;
+		};
 		91D8A22E270F88D400DD0B7D /* MyStyles */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 91D8A22D270F88D400DD0B7D /* XCRemoteSwiftPackageReference "MyStyles" */;

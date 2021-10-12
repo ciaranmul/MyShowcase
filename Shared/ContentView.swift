@@ -6,34 +6,36 @@
 //
 
 import SwiftUI
-import MyStyles
 
 struct ContentView: View {
+
     var body: some View {
-        List() {
-            ColorPreview("surface", MyColor.surface)
-            ColorPreview("background", MyColor.background)
-            ColorPreview("contentSuccess", MyColor.contentSuccess)
+        NavigationView {
+            List {
+                FoundationsContentsSection()
+            }
+            .navigationTitle("Components")
         }
     }
 }
 
-struct ColorPreview: View {
-    var text: String
-    var color: MyColor
-
-    init(_ text: String, _ color: MyColor) {
-        self.text = text
-        self.color = color
-    }
-
+struct FoundationsContentsSection: View {
     var body: some View {
-        HStack {
-            Text(text)
-                .padding()
-            Spacer()
+        Section {
+            NavigationLink {
+                MyColorsPreviewView()
+            } label: {
+                Text("Colors")
+            }
+
+            NavigationLink {
+
+            } label: {
+                Text("Typography")
+            }
+        } header: {
+            Text("Foundations")
         }
-        .background(color)
     }
 }
 
