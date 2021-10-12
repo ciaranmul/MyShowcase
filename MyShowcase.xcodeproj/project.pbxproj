@@ -756,7 +756,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ciaranmul/MyStyles";
 			requirement = {
-				branch = main;
+				branch = rwgrier/poc/theming;
 				kind = branch;
 			};
 		};

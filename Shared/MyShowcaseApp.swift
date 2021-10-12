@@ -18,6 +18,7 @@ struct MyShowcaseApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.theme, Theme.legacy)
         }
     }
 }

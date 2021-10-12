@@ -50,7 +50,7 @@ struct MyColorsPreviewView: View {
 struct ColorDetails: Hashable {
     var id: UUID = UUID()
     var name: String
-    var color: MyColor
+    var color: ThemeColor
 }
 
 struct ColorCategory: Hashable {
@@ -60,12 +60,17 @@ struct ColorCategory: Hashable {
 }
 
 struct MyColorCategoryView: View {
+    @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.theme) private var theme
+    
     var category: ColorCategory
 
     var body: some View {
         Section {
             ForEach(category.colorDetails, id: \.self) { color in
-                MyColorPreview(color.name, color.color)
+                MyColorPreview(color.name,
+                               theme.color(for: color.color,
+                                              colorScheme: colorScheme))
             }
         } header: {
             Text(category.name)
@@ -97,5 +102,7 @@ struct MyColorPreview: View {
 struct MyColorsPreviewView_Previews: PreviewProvider {
     static var previews: some View {
         MyColorsPreviewView()
+        MyColorsPreviewView()
+            .colorScheme(.dark)
     }
 }
