@@ -12,7 +12,7 @@ struct MyColorsPreviewView: View {
     @Environment(\.themeEngine) internal var themeEngine
     @State private var showThemeActionSheet = false
 
-    var categories: [ColorCategory] = [
+    @State private var categories: [ColorCategory] = [
         ColorCategory(name: "Surfaces", colorDetails: [
             ColorDetails(name: "surface", colorToken: .surface),
             ColorDetails(name: "background", colorToken: .background)
@@ -72,9 +72,9 @@ struct MyColorsPreviewView: View {
         List(categories, id: \.self) { category in
             MyColorCategoryView(category: category)
         }
-        .navigationTitle("Colors - \(themeEngine.currentThemeType.description)")
+        .navigationTitle("Colors - \(themeEngine.currentThemeType.title)")
         .toolbar {
-            Button("Change Theme") {
+            Button("Theme") {
                 self.showThemeActionSheet = true
             }
         }
@@ -83,19 +83,33 @@ struct MyColorsPreviewView: View {
                         message: nil,
                         buttons: [
                             .default(Text(ThemeType.legacy.description),
-                                     action: {
-                                         themeEngine.set(.legacy)
-                                     }),
+                                     action: { changeTheme(to: .legacy) }),
                             .default(Text(ThemeType.metalabsv1.description),
-                                     action: {
-                                         themeEngine.set(.metalabsv1)
-                                     }),
+                                     action: { changeTheme(to: .metalabsv1) }),
                             .default(Text(ThemeType.silly.description),
-                                     action: {
-                                         themeEngine.set(.silly)
-                                     }),
+                                     action: { changeTheme(to: .silly) }),
                             .cancel()
                         ])
+        }
+    }
+    
+    private func changeTheme(to themeType: ThemeType) {
+        themeEngine.set(themeType)
+        
+        // This is a hack. In the shipping app, I don't believe we'll
+        // be updating themes in real time. If I'm wrong, we'll need
+        // to take a step back and look at this.
+        //
+        // Without this, the user would have to either scroll the list
+        // or navigate away (back) and come back to this screen in
+        // order to have the colors update in the list.
+        //
+        // The change in ID (through a new struct creation) will tell the
+        // UI that this object has changed. However, the scrolling
+        // will be funky. If you're scrolled to the bottom of the list,
+        // switching the theme will cause the UI to jump a bit.
+        categories = categories.map {
+            ColorCategory(name: $0.name, colorDetails: $0.colorDetails)
         }
     }
 }
@@ -127,6 +141,8 @@ struct MyColorCategoryView: View {
 }
 
 struct MyColorPreview: View {
+    @Environment(\.themeEngine) internal var themeEngine
+    
     var text: String
     var colorToken: ColorToken
 
@@ -139,7 +155,7 @@ struct MyColorPreview: View {
         HStack {
             Circle()
                 .foregroundColor(colorToken)
-                .overlay(Circle().stroke(.border, lineWidth: 1))
+                .overlay(Circle().stroke(.border, lineWidth: 1, themeEngine: themeEngine))
                 .frame(width: 20, height: 20, alignment: .leading)
             Text(text)
             Spacer()
